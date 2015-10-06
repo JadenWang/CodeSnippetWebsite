@@ -1,0 +1,28 @@
+﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.master"
+    CodeFile="Default.aspx.cs" Inherits="_Default" %>
+
+<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
+</asp:Content>
+<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+    <h2>
+        Welcome to ASP.NET!
+    </h2>
+    <p>
+        To learn more about ASP.NET visit <a href="http://www.asp.net" title="ASP.NET Website">www.asp.net</a>.
+    </p>
+    <p>
+        You can also find <a href="http://go.microsoft.com/fwlink/?LinkID=152368&amp;clcid=0x409"
+            title="MSDN ASP.NET Docs">documentation on ASP.NET at MSDN</a>.
+    </p>
+
+    username:&nbsp<asp:TextBox ID="txtInputName" runat="server"></asp:TextBox><br />
+    password:&nbsp <asp:TextBox ID="txtPwd" runat="server"></asp:TextBox>
+    email:&nbsp <asp:TextBox ID="txtEmail" type="email" runat="server"></asp:TextBox>
+    <p />
+
+    <div>
+    Email <input name="body:x:pxCtc:x:ContactControl:x:txtContactEmail:x:x"  type="text" id="body_x_pxCtc_x_ContactControl_x_txtContactEmail_x_x" tabindex="1" autocomplete="off" requiredfield="true" errormessage="Email" maxlength="128" onmouseover="ivToolTip.fixedtooltip('', this, event);" onchange="$(this).validate();$(this).formatStartTag();" onkeydown="return press('proxyActionBar:x:_cmdSave:x:_btn', event);" datatype="Email" size="35" requiredmessage="Email" style="">
+    </div>
+
+    <asp:Button ID="btnSubmit" Text="Submit"  runat="server" />
+</asp:Content>

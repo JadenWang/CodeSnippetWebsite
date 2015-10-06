@@ -1,0 +1,57 @@
+﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.master"
+    CodeFile="Default.aspx.cs" Inherits="_Default" %>
+
+<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
+</asp:Content>
+<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+    <h2>
+        Welcome to ASP.NET!
+    </h2>
+    <p>
+        To learn more about ASP.NET visit <a href="http://www.asp.net" title="ASP.NET Website">www.asp.net</a>.
+    </p>
+    <p>
+        You can also find <a href="http://go.microsoft.com/fwlink/?LinkID=152368&amp;clcid=0x409"
+            title="MSDN ASP.NET Docs">documentation on ASP.NET at MSDN</a>.
+    </p>
+
+    username:&nbsp<asp:TextBox ID="txtInputName" runat="server"></asp:TextBox><br />
+    password:&nbsp <asp:TextBox ID="txtPwd" runat="server"></asp:TextBox>
+    <p />
+
+    <p>
+        <asp:Button ID="btnSubmit" Text="Submit" OnClientClick="if(!ValidateUserName()) {return false;}" runat="server" />
+    </p>
+
+
+    <% for(int i=0; i<10; i++){ %>
+        <font size="<%= i %>">Hello test!</font><br />
+    <%} %>
+
+
+    <%
+        for (int i = 0; i < 10; i++)
+        {
+            Response.Write("<br/>Hello 2 test");
+        }    
+    %>
+
+
+    <% var test = "test jaden"; %>
+
+    <%Response.Write("<br/>" + test);%>
+
+    <script type="text/javascript">
+        function ValidateUserName()
+        {
+            var name = txtInputName;
+            if (name.value.length < 3)
+            {
+                alert("Error: name cannot be less than 3 characters!");
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+</asp:Content>
