@@ -1,0 +1,86 @@
+﻿<%@ Page Title="Home Page" Language="C#" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+
+<!DOCTYPE html>
+
+<head>
+    <title>Local Jaden Site</title>
+    <script type="text/javascript" src="/Scripts/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        function printName(name) {
+            console.log("Name is: " + name);
+        }
+
+        function Fruit(name, color) {
+            this.name = name;
+            this.color = color;
+
+            this.printName = function(){console.log(this.name);}
+            this.printColor = function(){console.log(this.color);}
+        }
+
+        var fruit = new Fruit("fruit","color");
+
+        var apple = new Fruit("apple", "red");
+        apple.price = 1.99;
+        apple.printPrice = function () { console.log(this.price); }
+
+
+
+        var peach = new Fruit('peach', 'yelllow');
+
+        Fruit.prototype.count = 5;
+        Fruit.prototype.printCount = function () { console.log(this.count);}
+
+        apple.printCount();
+
+        veichle = function () { }
+        veichle.prototype.printName = function () { console.log("veichle name: veichle"); }
+
+        var v = new veichle();
+        v.printName();
+
+        var waterMelon = {
+            color: "green",
+            name: "watermelon",
+            price: "3.99",
+            producer: ["CA","NY","WY"],
+            printPrice: function () { console.log(this.price); },
+            printProducer: function() {
+                for(p in this.producer)
+                {
+                    console.log(p);
+                }
+            }
+        }
+        
+        waterMelon.printPrice();
+        waterMelon.printProducer();
+
+    
+    </script>
+
+</head>
+
+<body>
+
+<form runat="server">
+    <asp:Button runat="server" ID="btnSubmit" Text="Submit" OnClientClick="printName('jaden'); return false;" />
+    <asp:Button runat="server" ID="Button1" Text="PrintFruitName" OnClientClick="var fruit = new Fruit('fruit', 'color');fruit.printName(); return false;" />
+    <asp:Button runat="server" ID="Button2" Text="PrinFruitColor" OnClientClick="var fruit = new Fruit('fruit', 'color');fruit.printColor(); return false;" />
+
+    <asp:Button runat="server" ID="Button3" Text="PrintAppleColor" OnClientClick="apple.printColor();return false;" />
+    <asp:Button runat="server" ID="Button4" Text="PrintApplePrice" OnClientClick="apple.printPrice();return false;" />
+
+    <asp:Button runat="server" ID="Button5" Text="PrintFruitCount" OnClientClick="fruit.printCount();return false;" />
+
+    <asp:Button runat="server" ID="Button6" Text="hide" OnClientClick="$('#Button5').hide();return false;" />
+
+
+</form>
+
+</body>
+
+
+    
+    

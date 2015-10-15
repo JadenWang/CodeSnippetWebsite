@@ -1,0 +1,54 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class _Default : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        RegisterCustomizedScript();
+    }
+
+    protected override void OnLoad(EventArgs e)
+    {
+        base.OnLoad(e);
+    }
+
+    protected override void OnPreRender(EventArgs e)
+    {
+        base.OnPreRender(e);
+        
+    }
+
+    protected virtual void RegisterCustomizedScript()
+    {
+        string myScript = string.Empty;
+
+        BuildScript(out myScript);
+
+        ClientScript.RegisterClientScriptBlock(this.GetType(), "test_script", myScript, true);
+    }
+
+    protected virtual void BuildScript(out string myScript)
+    {
+        myScript = @"
+function ValidatePassword()
+{
+    var pass = " + txtPwd.ClientID + @";
+    if(pass.value.length < 3)
+    {
+        alert(""Error: password cannot be less than 3 characters!"");
+        return false;
+    }
+    return true;
+}
+"; 
+    }
+
+
+
+
+}
