@@ -1,0 +1,60 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Drawing;
+
+public partial class MyBitmap : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    Bitmap image1;
+
+    public void Button1_Click(System.Object sender, System.EventArgs e)
+    {
+        try
+        {
+            // Retrieve the image.
+            image1 = new Bitmap(@"C:\Users\jwa\Documents\GitHub\CodeSnippetWebsite\App_Data\login_pics.jpg", true);
+
+            int x, y;
+
+            // Loop through the images pixels to reset color.
+            for (x = 0; x < image1.Width; x++)
+            {
+                for (y = 0; y < image1.Height; y++)
+                {
+                    Color pixelColor = image1.GetPixel(x, y);
+                    Color newColor = Color.FromArgb(0, 0, pixelColor.G);
+                    image1.SetPixel(x, y, newColor);
+                }
+            }
+
+            // Set the PictureBox to display the image.
+            //Graphics graph = Graphics.FromImage(image1);
+            //myImage = image1;
+
+            //Graphics objGraphics = System.Drawing.Graphics.FromImage(image1);
+
+            // Set the content type and return the image
+            Response.ContentType = "image/GIF";
+            image1.Save(Response.OutputStream, System.Drawing.Imaging.ImageFormat.Gif);
+           // objGraphics.Dispose();
+            image1.Dispose();
+
+            // Display the pixel format in Label1.
+            myLabel.Text = "Pixel format: " + image1.PixelFormat.ToString();
+
+        }
+        catch (ArgumentException)
+        {
+            myLabel.Text = "There was an error." + "Check the path to the image file.";
+        }
+    }
+
+}

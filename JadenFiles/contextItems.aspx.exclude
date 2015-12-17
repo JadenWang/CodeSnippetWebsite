@@ -1,0 +1,20 @@
+﻿<%@ Page Title="Home Page" Language="C#" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+
+<head>
+    <title>Local Jaden Site</title>
+    <script type="text/javascript" src="/Scripts/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+<form runat="server">
+    <asp:Button runat="server" ID="btnSubmit" Text="Submit" />
+
+
+</form>
+
+</body>
+
+    
+    
